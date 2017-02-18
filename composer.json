@@ -1,0 +1,10 @@
+{
+  "name": "rvtraveller/qs-db-sanitization",
+  "description": "Quicksilver implementation to sanitize a production database when it is rolled back to a prior environment.",
+  "type": "quicksilver-module",
+  "license": "MIT",
+  "require": {
+    "php": ">=5.5.0",
+    "rvtraveller/qs-composer-installer": "1.0"
+  }
+}

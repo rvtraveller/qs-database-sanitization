@@ -1,0 +1,19 @@
+# Always start with an API version. This will increment as Quicksilver evolves.
+api_version: 1
+
+# Specify when we want to revert all features -- on code push and on deploy.
+workflows:
+  clone_database:
+    after:
+      - type: webphp
+        description: Sanitize database users
+        script: private/scripts/db-sanitization-users.php
+      - type: webphp
+        description: Enable non-prod modules
+        script: private/scripts/db-sanitization-modules.php
+      - type: webphp
+        description: Change user 1's password to the non-production value
+        script: private/scripts/db-sanitization-admin.php
+      - type: webphp
+        description: Change the Google Analytics account numbers to non-production values
+        script: private/scripts/db-sanitization-ga.php
